@@ -79,6 +79,7 @@ def player_input(player, board):
                 if board[position//3][position%3] in [str(i) for i in range(1,10)]:
                     return position
                     valid = True
+                    
 def play(player, position, board):
     board[position//3][position%3] = player
 

@@ -10,6 +10,7 @@ def play_game():
 
     os.system("cls" if os.name == "nt" else "clear")
     computer_playing = check_game_mode()
+    turn = 0
 
     while not game_over:
         show_board(board)
@@ -25,10 +26,13 @@ def play_game():
             show_board(board)
             print(player+" wins!")
             game_over = not game_over
-        elif check_tie(board):
+        elif check_tie(board) and turn == 8:
+            show_board(board)
             print("Tie game.")
             game_over = not game_over
+
         player = "X" if player == "O" else "O"
+        turn +=1
         
 def show_board(board):
     os.system("cls" if os.name == "nt" else "clear")
@@ -50,7 +54,7 @@ def check_win(player, board):
            check_diagonal(player, board)
 
 def check_tie(board):
-    return check_win("O", board) and check_win("X", board)
+    return not check_win("O", board) and not check_win("X", board)
 
 def check_row(player, board):
     for row in board:
@@ -79,7 +83,7 @@ def player_input(player, board):
                 if board[position//3][position%3] in [str(i) for i in range(1,10)]:
                     return position
                     valid = True
-                    
+
 def play(player, position, board):
     board[position//3][position%3] = player
 

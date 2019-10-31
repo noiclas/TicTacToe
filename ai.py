@@ -26,9 +26,3 @@ def minimax(board, player, max_depth, current_depth):
 def find_best_move(board, player, max_depth):
     score, move = minimax(board, player, max_depth, 0)
     return move
-
-# b = [["1", "X", "O"],
-#      ["X", "5", "0"],
-#      ["X", "O", "8"]]
-# board = Board(b, "X")
-# print(find_best_move(board, "X", 8))

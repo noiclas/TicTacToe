@@ -1,3 +1,3 @@
 # TicTacToe
 Simple terminal Tic Tac Toe game. 
-Can play PvP or PvCOM
+Can play PvP or PvE
